@@ -1,10 +1,49 @@
+/* Schriftart aus Google Fonts laden */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+html, #container, .inner { background-color:transparent;}
+html {
+    background:url(background.jpg) center center no-repeat fixed;
+    background-size:cover;
+}
+
+body {
+max-width:800px;
+margin:25px auto;
+}
+
+header, #content, footer {
+    padding:25px;
+    color:#FFFFFF;
+}
+
+
+p {
+    margin: 0 autp 1.5em auto;
+}
+p + p {
+
+}
+
+/* Texteffekt hinzufügen */
+h1 {
+font-family: 'Roboto', sans-serif;
+font-size: 48px;
+text-shadow: 2px 2px 0px #222;
+}
+
+
 #menu {
-	background: #0099CC;
+	background: #00999D;
 	color: #FFF;
 	height: 45px;
 	padding-left: 18px;
 	border-radius: 10px;
-	border: 9px solid #6D6D6D;
+	border: 2px solid #6D6D6D;
 }
 #menu ul, #menu li {
 	margin: 0 auto;
@@ -22,10 +61,10 @@
 #menu a {
 	display: block;
 	line-height: 27px;
-	padding: 0 14px;
+	padding: 5px 20px;
 	text-decoration: none;
 	color: #FFFFFF;
-	font-size: 16px;
+	font-size: 30px;
 }
 #menu a.dropdown-arrow:after {
 	content: "\25BE";
@@ -91,4 +130,29 @@
 	#menu input:checked + label {color:white}
 	#menu input:checked + label:before {content:"\00d7"}
 	#menu input:checked ~ ul {display:block}
+}
+
+footer {
+  position: fixed !important;
+  bottom: 0;
+  width: 800px;
+  height: 50px;
+  background-color: #00999D;
+  color: #fff;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #6D6D6D;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  clear: both;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  hyphens: auto;
+  word-wrap: break-word;
+  text-align : center;
 }

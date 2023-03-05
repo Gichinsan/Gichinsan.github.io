@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html {
-    font-size: 62.5%;
+    font-size: 82.5%;
 }
 
 html, #container, .inner { background-color:transparent;}
@@ -155,4 +155,10 @@ footer {
   hyphens: auto;
   word-wrap: break-word;
   text-align : center;
+}
+
+.aboutbg {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
 }

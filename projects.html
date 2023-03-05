@@ -2,22 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Github pages für kleine Spring Boot Hobby Projekte">
+    <meta name="keywords" content="Github, Spring Boot, Java, API">
+    <meta name="author" content="Gichinsan">
+    <meta name="robots" content="index, follow">
     <title>House of Hobbyprojects</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:,">
     <script src="repos.js"></script>
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
 </head>
 <body>
 <div id="header"></div>
 
 <main>
-    <p>
-    <h1>In construction</h1>
-    </p>
+    <div class="aboutbg">
+        <p>
+        <h1>In construction</h1>
+        </p>
 
-    <h1>This is a list of all my public projects</h1>
-    <ul id="repos"></ul>
+        <h1>My GitHub Java Repositories</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Language</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody id="project-table-body">
+            </tbody>
+        </table>
+
+        <script>
+		const username = "Gichinsan";
+		const apiUrl = `https://api.github.com/users/${username}/repos`;
+
+		fetch(apiUrl)
+			.then(response => response.json())
+			.then(data => {
+				const javaProjects = data.filter(project => project.language === 'Java');
+
+      javaProjects.forEach(project => {
+        const projectName = project.name;
+        const language = project.language;
+        const description = project.description;
+        const row = `
+          <tr>
+            <td>${projectName}</td>
+            <td>${language}</td>
+            <td>${description}</td>
+          </tr>
+        `;
+        document.getElementById('project-table-body').innerHTML += row;
+      });
+    });
+
+
+        </script>
+
+    </div>
+
 </main>
 
 <footer>

@@ -1,150 +1,152 @@
 /* Schriftart aus Google Fonts laden */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-html {
-    font-size: 82.5%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html, #container, .inner { background-color:transparent;}
 html {
-    background:url(/images/background.jpg) center center no-repeat fixed;
-    background-size:cover;
+    font-size: 100%;
+    background: url(/images/background_loch_v2.png) center center no-repeat fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 body {
-max-width:800px;
-margin:25px auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
-header, #content, footer {
-    padding:25px;
-    color:#FFFFFF;
+header {
+    background-color: rgba(0, 153, 157, 0.95);
+    padding: 20px;
+    color: #FFFFFF;
+    border-bottom: 2px solid #6D6D6D;
+    border-radius: 0 0 10px 10px;
+}
+
+main {
+    flex: 1;
+}
+
+#content {
+    padding: 20px;
+    color: #FFFFFF;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+}
+
+#sidebar {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 0;
 }
 
 
 p {
-    margin: 0 autp 1.5em auto;
-}
-p + p {
-
+    margin: 0 auto 1.5em auto;
 }
 
 /* Texteffekt hinzufügen */
 h1 {
-font-family: 'Roboto', sans-serif;
-font-size: 48px;
-text-shadow: 2px 2px 0px #222;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    text-shadow: 2px 2px 0px #222;
+    margin-bottom: 0.5em;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 0.3em;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
 
 #menu {
-	background: #00999D;
-	color: #FFF;
-	height: 45px;
-	padding-left: 18px;
-	border-radius: 10px;
-	border: 2px solid #6D6D6D;
+    background: rgba(0, 153, 157, 0.9);
+    color: #FFF;
+    border-radius: 0;
+    border: none;
+    overflow: visible;
+    width: 100%;
 }
+
 #menu ul, #menu li {
-	margin: 0 auto;
-	padding: 0;
-	list-style: none
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
 #menu ul {
-	width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
+
 #menu li {
-	float: left;
-	display: inline;
-	position: relative;
+    position: relative;
 }
+
 #menu a {
-	display: block;
-	line-height: 27px;
-	padding: 5px 20px;
-	text-decoration: none;
-	color: #FFFFFF;
-	font-size: 30px;
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    white-space: nowrap;
 }
-#menu a.dropdown-arrow:after {
-	content: "\25BE";
-	margin-left: 5px;
+
+#menu li:last-child a {
+    border-right: none;
 }
-#menu li a:hover {
-	color: #0099CC;
-	background: #F2F2F2;
+
+#menu a:hover {
+    color: #0099CC;
+    background-color: rgba(0, 0, 0, 0.3);
 }
-#menu input {
-	display: none;
-	margin: 0;
-	padding: 0;
-	height: 45px;
-	width: 100%;
-	opacity: 0;
-	cursor: pointer
-}
-#menu label {
-	display: none;
-	line-height: 27px;
-	text-align: center;
-	position: absolute;
-	left: 35px
-}
-#menu label:before {
-	font-size: 1.6em;
-	content: "\2261"; 
-	margin-left: 20px;
-}
-#menu ul.sub-menus{
-	height: auto;
-	overflow: hidden;
-	width: 170px;
-	background: #444444;
-	position: absolute;
-	z-index: 99;
-	display: none;
-}
-#menu ul.sub-menus li {
-	display: block;
-	width: 100%;
-}
-#menu ul.sub-menus a {
-	color: #FFFFFF;
-	font-size: 16px;
-}
-#menu li:hover ul.sub-menus {
-	display: block
-}
-#menu ul.sub-menus a:hover{
-	background: #F2F2F2;
-	color: #444444;
-}
-@media screen and (max-width: 800px){
-	#menu {position:relative}
-	#menu ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
-	#menu ul.sub-menus {width:100%;position:static;}
-	#menu ul.sub-menus a {padding-left:30px;}
-	#menu li {display:block;float:none;width:auto;}
-	#menu input, #menu label {position:absolute;top:0;left:0;display:block}
-	#menu input {z-index:4}
-	#menu input:checked + label {color:white}
-	#menu input:checked + label:before {content:"\00d7"}
-	#menu input:checked ~ ul {display:block}
+
+@media screen and (max-width: 768px) {
+    #menu ul {
+        flex-direction: column;
+    }
+    
+    #menu a {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    #menu li:last-child a {
+        border-bottom: none;
+    }
 }
 
 footer {
-  position: fixed !important;
-  bottom: 0;
-  width: 800px;
-  height: 50px;
-  background-color: #00999D;
-  color: #fff;
-  font-size: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 2px solid #6D6D6D;
-  margin: 0;
-  box-sizing: border-box;
+    background-color: rgba(0, 153, 157, 0.95);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px 10px 0 0;
+    border-top: 2px solid #6D6D6D;
+    margin-top: auto;
+    text-align: center;
 }
 
 .footer-container {
@@ -161,4 +163,33 @@ footer {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
   border-radius: 10px;
+}
+
+.aboutbg a {
+  color: #0099CC;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.aboutbg a:hover {
+  text-decoration: underline;
+}
+
+.aboutbg h1, .aboutbg h2, .aboutbg h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #222;
+}
+
+.aboutbg p {
+  line-height: 1.6;
+  color: #333;
+}
+
+.aboutbg em {
+  font-style: italic;
+}
+
+.aboutbg strong {
+  font-weight: bold;
 }
